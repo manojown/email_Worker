@@ -1,0 +1,70 @@
+{
+	"appName": "Email-worker",
+	"aws": {
+		"iamUser": "",
+		"accessKey": "",
+		"secret": "",
+		"region": ""
+	},
+	"database": {
+		"operations": {
+			"host": "",
+			"username": "",
+			"password": "",
+			"database": "ebdb",
+			"models": [{
+				"name": "Order",
+				"options": {
+					"tableName": "axi_orders"
+				}
+			}]
+		}
+	},
+	"logs": {
+		"level": "trace",
+		"streams": [{
+			"type": "rotating-file",
+			"level": "trace",
+			"path": "./logs/email-trace.log",
+			"period": "1d",
+			"count": 3
+		}, {
+			"type": "rotating-file",
+			"level": "info",
+			"path": "./logs/email-worker.log",
+			"period": "1d",
+			"count": 3
+		}, {
+			"type": "rotating-file",
+			"level": "error",
+			"path": "./logs/email-error.log",
+			"period": "1d",
+			"count": 3
+		}, {
+			"type": "rotating-file",
+			"level": "fatal",
+			"path": "./logs/email-fatal.log",
+			"period": "1d",
+			"count": 3
+		}]
+	},
+	"raven": {
+		"key": ""
+	},
+	"consumer": {
+		"listeners": [{
+			"queue": "orders",
+			"timeout": 10000
+		}],
+		"concurrency": 1
+	},
+	"imap" : {
+	  "user":"YourEmailAdress",
+	  "password": "YourEmailPassword",
+	  "host": "imap.gmail.com",
+	  "port": 993, 
+	  "tls": true,
+	  "searchFilter": ["UNSEEN", "FLAGGED"], 
+	  "tlsOptions": { "rejectUnauthorized": false }
+	}
+}

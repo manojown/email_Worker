@@ -1,0 +1,22 @@
+{
+  "name": "axtionEngineera-worker",
+  "version": "1.0.0",
+  "description": "Worker app to process DW requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "manojown",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.1",
+    "bunyan": "^1.8.1",
+    "bunyan-format": "^0.2.1",
+    "mail-notifier": "^0.3.0",
+    "minimist": "^1.2.0",
+    "mongoose": "^4.8.5",
+    "nano": "^6.2.0",
+    "pusher": "^1.5.1",
+    "q": "^1.4.1"
+  }
+}
